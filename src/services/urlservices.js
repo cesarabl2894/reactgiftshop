@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const baseurl = 'http://localhost:5000/';
-
+const baseurl = 'http://localhost:5000';
+// Note: for Every Async function returns a promise that have to be resolve with an Await Function
 export default class urlservices {
     static async getService(uri, method, data = {}){
         const mainUrl = `${baseurl}${uri}`;
@@ -12,13 +12,13 @@ export default class urlservices {
 
         switch(method){
             case 'POST':
-                return axios.post(mainUrl,data,config)
+                return await axios.post(mainUrl,data,config)
             case 'GET':
-                return axios.get(mainUrl,data,config)
+                return await axios.get(mainUrl,config)
             case 'PUT':
-                return axios.put(mainUrl,data,config)
+                return await axios.put(mainUrl,data,config)
             case 'DELETE' :
-                return axios.put(mainUrl,data,config)
+                return await axios.put(mainUrl,data,config)
             default:
                 break;
         }

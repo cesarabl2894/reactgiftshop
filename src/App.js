@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import urlservices from './services/urlservices';
-
+import {Route, Switch} from 'react-router-dom';
+// import urlservices from './services/urlservices';
+import Login from './components/Login.js';
+import Main from './components/Main.js';
 
 class App extends Component {
   constructor(props){
@@ -10,47 +12,15 @@ class App extends Component {
       password : ''
     }
   }
-  async loginAction(e){
-    e.preventDefault();
-    const {email, password} = this.state;
-    const body = {email, password};
-
-    const result = urlservices.getService('login','POST', body);
-    
-    console.log(result);
-
-    try {
-      
-    } catch (error) {
-      console.log(error);
-    }
-    console.log(this.state);
+  render(){
+    return(
+      <Switch>
+          <Route exact path='/' component={Login} />
+          <Route path='/main' component={Main} />
+      </Switch>
+    )
   }
-  getEmail(e){
-    const email = e.target.value; 
-    this.setState({email});
-  }
-  getPassowrd(e){
-    let password = e.target.value;
-    this.setState({password:password});
-  }
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <form onSubmit={e => this.loginAction(e)}>
-          <input type="text" placeholder="cesar_abl94@hotmail.com" onChange={e => this.getEmail(e)} />
-          <input type="text" placeholder="Password" onChange={e => this.getPassowrd(e)}/>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
-    );
-  }
+  
 }
 
 export default App;
