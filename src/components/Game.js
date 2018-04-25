@@ -9,8 +9,9 @@ class Game extends Component{
         }
     }
     async componentDidMount(){
+        const gameName = this.props.match.params.name;
         try{
-            const ajxresponse = await urlservices.getService('/game/Gears of War: Ultimate Edition','GET');
+            const ajxresponse = await urlservices.getService(`/game/${gameName}`,'GET');
             const game = ajxresponse.data.data;
             this.setState({game});
         }catch(err){

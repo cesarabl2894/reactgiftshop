@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
 import Switcher from './Switcher.js';
+import Navbar from './Navbar.js';
 
 
 class Main extends Component {
@@ -9,7 +10,10 @@ class Main extends Component {
     
     render(){
         return(
-            <Switcher/>
+            <div>
+                <Navbar/>
+                <Switcher/>
+            </div>   
         )
     }
 }

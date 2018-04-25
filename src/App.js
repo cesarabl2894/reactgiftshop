@@ -3,6 +3,7 @@ import {Route, Switch} from 'react-router-dom';
 // import urlservices from './services/urlservices';
 import Login from './components/Login.js';
 import Main from './components/Main.js';
+import './assets/css/style.css'
 
 class App extends Component {
   constructor(props){

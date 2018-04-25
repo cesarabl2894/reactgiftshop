@@ -13,22 +13,16 @@ class Login extends Component {
     e.preventDefault();
     const {email, password} = this.state;
     const body = {email, password};
-
-    const result = await urlservices.getService('/login','POST', body);
-
-    console.log(result.data.data);
-
-    const { token } = result.data.data;
-
-    localStorage.setItem('token',token)
+    // const Errmessage = result.data.message    
     // console.log(result)
 
     try {
-      
+      const result = await urlservices.getService('/login','POST', body);
+      const { token } = result.data.data;   
+    localStorage.setItem('token',token)
     } catch (error) {
-      console.log(error);
+      alert('Invalid Credentials');
     }
-    console.log(this.state);
   }
   getEmail(e){
     const email = e.target.value; 
@@ -36,20 +30,31 @@ class Login extends Component {
   }
   getPassowrd(e){
     let password = e.target.value;
+    console.log(password);
     this.setState({password:password});
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Enter Your Credentials</h1>
-        </header>
-        <form onSubmit={e => this.loginAction(e)}>
-          <input type="text" placeholder="cesar_abl94@hotmail.com" onChange={e => this.getEmail(e)} />
-          <input type="password" placeholder="Password" onChange={e => this.getPassowrd(e)}/>
-          <input type="submit" value="Submit" />
-        </form>
-      </div>
+        <div className="loginWrapper">
+            <main className="loginContainer">
+                <div className="loginBox">
+                    <div className="loginOptions">
+                        <a href="" className="signIn">Sign Up</a>
+                        <a href="" className="signUp">Sign Up</a>
+                    </div>
+                    <div className="loginInfo">
+                        <h1 className="logo">GAMELAND</h1>
+                        <p className="slogan">(Gaming...for everyone)</p>
+                        <form className="loginForm" onSubmit={(e)=>this.loginAction(e)}>
+                            <input className="user" type="email" placeholder="enter email or username" onChange={e => this.getEmail(e)}/>
+                            <input className="password" type="text" placeholder="enter your password" onChange={e => this.getPassowrd(e)}/>
+                            <input className="submit" type="submit" value="Log In"/>
+					              </form>
+                    </div>
+                    
+                </div>
+            </main>
+        </div>
     );
   }
 }

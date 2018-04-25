@@ -22,16 +22,36 @@ class Games extends Component{
     }
     render(){
         const games = this.state.games;
+        const gameUrl = '/game/';
         return(
-            <div>
-                <h1>Choose from our Game List</h1>
-                {games.map(game =>
-                    <div key={game.id}>
-                        <h2>{game.name}</h2>
-                        <img src={game.image} alt=""/>
+            <div className="homepageWrapper">
+                <section className="searchContainer">
+                    <form className="searchForm" >
+                            <input className="searchField" type="text" name="FirstName" placeholder="LOOK FOR YOUR FAVORITE GAMES"/>
+                    </form>
+                </section>
+                <main className="productMain">
+                    <div className="productList">
+                    {games.map(game =>
+                        <a href={`/game/${game.name}`} key={game.id}>
+                            <figure >
+                                <img src={game.image} />
+                                <figcaption>
+                                    <ul>
+                                        <li><strong>Title:</strong> {game.name}</li>
+                                        <li><strong>Developer:</strong>{game.developer}</li>
+                                        
+                                        <li><strong>Publisher:</strong> {game.publisher}</li>
+                                        <li><strong>Price:</strong>${game.price}</li>
+                                    </ul>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        
+                    )}
+                    
                     </div>
-
-                )}           
+                </main>       
             </div>
         )
     }
