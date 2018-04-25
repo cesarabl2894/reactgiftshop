@@ -1,5 +1,5 @@
 import React , { Component } from 'react';
-// import Switcher from './Switcher.js';
+import Switcher from './Switcher.js';
 
 
 class Main extends Component {
@@ -9,7 +9,7 @@ class Main extends Component {
     
     render(){
         return(
-            <h1>Hello World</h1>
+            <Switcher/>
         )
     }
 }

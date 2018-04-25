@@ -42,14 +42,11 @@ class Login extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h1 className="App-title">Welcome to React</h1>
+          <h1 className="App-title">Enter Your Credentials</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
         <form onSubmit={e => this.loginAction(e)}>
           <input type="text" placeholder="cesar_abl94@hotmail.com" onChange={e => this.getEmail(e)} />
-          <input type="text" placeholder="Password" onChange={e => this.getPassowrd(e)}/>
+          <input type="password" placeholder="Password" onChange={e => this.getPassowrd(e)}/>
           <input type="submit" value="Submit" />
         </form>
       </div>
