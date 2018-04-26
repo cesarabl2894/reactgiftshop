@@ -4,15 +4,17 @@
 	box-sizing: border-box;
 }
 
-// @font-face {
-// 	font-family: "Eightbit";
-// 	src: url(../fonts/eightbit.ttf) format("truetype");
-// 	src: url(../fonts/eightbit.otf) format("opentype");
-// }
+@font-face {
+	font-family: "Eightbit";
+	src: url(../fonts/eightbit.ttf) format("truetype");
+	src: url(../fonts/eightbit.otf) format("opentype");
+}
 
 // @include font-face("Eightbit, fonts/Eightbit");
 
-
+#root{
+	height: 100%;
+}
 body, html {
 	max-width: 1800px;
 	width: 100%;
@@ -216,6 +218,7 @@ nav{
 }
 
 div.homepageWrapper{
+	// height: 100vh;
 	margin-top: 70px;
     background-color: #F4F4F4;
 }
@@ -251,8 +254,7 @@ main.productMain{
 			width: calc((100%/2) - 20px);
     		margin: 0 auto 40px;
     		img{
-				width: 100%;
-				max-height: 230px;
+    			width: 100%;
     		}
     		figcaption{
     			color: black;
@@ -262,7 +264,7 @@ main.productMain{
 			margin: initial;
 		}
 	}
-	.addGame{
+	.addGameContainer{
 	    width: 100%;
 	    max-width: 1800px;
 	    margin: 0 auto;
@@ -271,15 +273,15 @@ main.productMain{
 	    right: 20px;
 	    left: 0;
 	    transition: all 0.5s ease;
-		img{
-			float: right;
-			vertical-align: middle;
+	    a{
+	    	float: right;
+			img{
+				float: right;
+				vertical-align: middle;
+
+			}
 		}
 	}
-	// :active{
-	// 	transform: rotate(45deg);
-	// 	transition: all 0.5s ease;
-	// }
 }
 
 // EDIT/DELETE/ADD GAME POPUP
@@ -338,6 +340,13 @@ main.productMain{
 			}
 		}
 	}	
+}
+
+form.editGame,
+form.addGame{
+	input{
+		width: 100%;
+	}
 }
 /*****************r*************************
 ****************  GAME LIST  ***************

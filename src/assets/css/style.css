@@ -1,6 +1,14 @@
 * {
   box-sizing: border-box; }
 
+@font-face {
+  font-family: "Eightbit";
+  src: url(../fonts/eightbit.ttf) format("truetype");
+  src: url(../fonts/eightbit.otf) format("opentype"); }
+
+#root {
+  height: 100%; }
+
 body, html {
   max-width: 1800px;
   width: 100%;
@@ -200,13 +208,12 @@ main.productMain {
       width: calc((100%/2) - 20px);
       margin: 0 auto 40px; }
       main.productMain ul.productList li.game img {
-        width: 100%;
-        max-height: 230px; }
+        width: 100%; }
       main.productMain ul.productList li.game figcaption {
         color: black; }
     main.productMain ul.productList li.game:last-child {
       margin: initial; }
-  main.productMain .addGame {
+  main.productMain .addGameContainer {
     width: 100%;
     max-width: 1800px;
     margin: 0 auto;
@@ -215,9 +222,11 @@ main.productMain {
     right: 20px;
     left: 0;
     transition: all 0.5s ease; }
-    main.productMain .addGame img {
-      float: right;
-      vertical-align: middle; }
+    main.productMain .addGameContainer a {
+      float: right; }
+      main.productMain .addGameContainer a img {
+        float: right;
+        vertical-align: middle; }
 
 .white-popup {
   position: relative;
@@ -273,6 +282,10 @@ main.productMain {
         .white-popup section .addInfo .gameOptions .delete,
         .white-popup section .addInfo .gameOptions .cancel {
           background-color: #B21111; }
+
+form.editGame input,
+form.addGame input {
+  width: 100%; }
 
 /*****************r*************************
 ****************  GAME LIST  ***************

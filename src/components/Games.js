@@ -42,8 +42,7 @@ class Games extends Component{
                                     <figcaption>
                                         <ul>
                                             <li><strong>Title:</strong> {game.name}</li>
-                                            <li><strong>Developer:</strong>{game.developer}</li>
-                                            
+                                            <li><strong>Developer:</strong>{game.developer}</li>                                            
                                             <li><strong>Publisher:</strong> {game.publisher}</li>
                                             <li><strong>Price:</strong>${game.price}</li>
                                         </ul>
@@ -53,6 +52,7 @@ class Games extends Component{
                         </li>
                     )}
                     </ul>
+                    <div class="addGameContainer"><a class="addGame open-popup-link" href="#add-popup"><img src="build/img/add-button.png" alt="plus-sign"/></a></div>
                 </main>       
             </div>
         )
