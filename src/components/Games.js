@@ -8,7 +8,7 @@ class Games extends Component{
             games: []
         }
     }
-    async componentDidMount(){
+    async fetchGames(){
         try {
             // const token = localStorage.getItem('token');
             const ajxresponse = await urlservices.getService('/games?name=','GET');
@@ -18,11 +18,13 @@ class Games extends Component{
         } catch (error) {
             console.log(error);
         }
+    }
+    componentDidMount(){
+        this.fetchGames();
 
     }
     render(){
         const games = this.state.games;
-        const gameUrl = '/game/';
         return(
             <div className="homepageWrapper">
                 <section className="searchContainer">
@@ -31,26 +33,26 @@ class Games extends Component{
                     </form>
                 </section>
                 <main className="productMain">
-                    <div className="productList">
+                    <ul className="productList">
                     {games.map(game =>
-                        <a href={`/game/${game.name}`} key={game.id}>
-                            <figure >
-                                <img src={game.image} />
-                                <figcaption>
-                                    <ul>
-                                        <li><strong>Title:</strong> {game.name}</li>
-                                        <li><strong>Developer:</strong>{game.developer}</li>
-                                        
-                                        <li><strong>Publisher:</strong> {game.publisher}</li>
-                                        <li><strong>Price:</strong>${game.price}</li>
-                                    </ul>
-                                </figcaption>
-                            </figure>
-                        </a>
-                        
+                        <li className="game" key={game.id}>
+                            <a href={`/game/${game.name}`} >
+                                <figure >
+                                    <img src={game.image} />
+                                    <figcaption>
+                                        <ul>
+                                            <li><strong>Title:</strong> {game.name}</li>
+                                            <li><strong>Developer:</strong>{game.developer}</li>
+                                            
+                                            <li><strong>Publisher:</strong> {game.publisher}</li>
+                                            <li><strong>Price:</strong>${game.price}</li>
+                                        </ul>
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
                     )}
-                    
-                    </div>
+                    </ul>
                 </main>       
             </div>
         )
