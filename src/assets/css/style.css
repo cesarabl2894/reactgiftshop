@@ -231,61 +231,6 @@ main.productMain {
         float: right;
         vertical-align: middle; }
 
-.white-popup {
-  position: relative;
-  background: #F4F4F4;
-  width: auto;
-  max-width: 730px;
-  min-height: 500px;
-  margin: 20px auto;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-  .white-popup section {
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    padding: 0 20px;
-    margin: 0 auto; }
-    .white-popup section .gameThumbnail,
-    .white-popup section .thumbnailUpload {
-      width: 40%;
-      margin-right: 5%; }
-      .white-popup section .gameThumbnail img,
-      .white-popup section .thumbnailUpload img {
-        width: 100%; }
-    .white-popup section .gameInfo,
-    .white-popup section .addInfo {
-      position: relative;
-      width: 55%; }
-      .white-popup section .gameInfo ul,
-      .white-popup section .addInfo ul {
-        color: black; }
-        .white-popup section .gameInfo ul li,
-        .white-popup section .addInfo ul li {
-          margin-bottom: 5px; }
-      .white-popup section .gameInfo .gameOptions,
-      .white-popup section .addInfo .gameOptions {
-        position: absolute;
-        right: 0;
-        bottom: 10px; }
-        .white-popup section .gameInfo .gameOptions a,
-        .white-popup section .addInfo .gameOptions a {
-          text-transform: uppercase;
-          color: white;
-          border-radius: 5px;
-          padding: 5px 15px; }
-        .white-popup section .gameInfo .gameOptions .edit,
-        .white-popup section .gameInfo .gameOptions .save,
-        .white-popup section .addInfo .gameOptions .edit,
-        .white-popup section .addInfo .gameOptions .save {
-          background-color: #03BC67; }
-        .white-popup section .gameInfo .gameOptions .delete,
-        .white-popup section .gameInfo .gameOptions .cancel,
-        .white-popup section .addInfo .gameOptions .delete,
-        .white-popup section .addInfo .gameOptions .cancel {
-          background-color: #B21111; }
-
 form.editGame input[type=text],
 form.addGame input[type=text] {
   width: 100%;
@@ -387,13 +332,27 @@ form.addGame input[type=text] {
         #edit-popup section .addInfo .gameOptions input[type=submit] {
           border: none;
           padding: 10px; }
+        #edit-popup section .gameInfo .gameOptions a, #edit-popup section .gameInfo .gameOptions input[type=submit],
+        #edit-popup section .addInfo .gameOptions a,
+        #edit-popup section .addInfo .gameOptions input[type=submit] {
+          cursor: pointer; }
         #edit-popup section .gameInfo .gameOptions .edit,
         #edit-popup section .gameInfo .gameOptions .save,
         #edit-popup section .addInfo .gameOptions .edit,
         #edit-popup section .addInfo .gameOptions .save {
           background-color: #03BC67; }
+          #edit-popup section .gameInfo .gameOptions .edit:hover,
+          #edit-popup section .gameInfo .gameOptions .save:hover,
+          #edit-popup section .addInfo .gameOptions .edit:hover,
+          #edit-popup section .addInfo .gameOptions .save:hover {
+            background-color: #04ee83; }
         #edit-popup section .gameInfo .gameOptions .delete,
         #edit-popup section .gameInfo .gameOptions .cancel,
         #edit-popup section .addInfo .gameOptions .delete,
         #edit-popup section .addInfo .gameOptions .cancel {
           background-color: #B21111; }
+          #edit-popup section .gameInfo .gameOptions .delete:hover,
+          #edit-popup section .gameInfo .gameOptions .cancel:hover,
+          #edit-popup section .addInfo .gameOptions .delete:hover,
+          #edit-popup section .addInfo .gameOptions .cancel:hover {
+            background-color: #e11515; }

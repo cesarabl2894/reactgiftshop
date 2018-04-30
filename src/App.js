@@ -4,8 +4,6 @@ import {Route, Switch} from 'react-router-dom';
 import Login from './components/Login.js';
 import Main from './components/Main.js';
 import './assets/css/style.css';
-import 'react-notifications/lib/notifications.css';
-import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 
 class App extends Component {

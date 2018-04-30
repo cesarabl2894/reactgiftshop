@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import urlservices from '../services/urlservices';
+import swal from 'sweetalert';
 
 
 class AddGame extends Component{
@@ -43,15 +44,14 @@ class AddGame extends Component{
         try {
             if(action === 'add'){
                 const result =  await urlservices.getService('/game','POST', request);
-                alert(result.data.message);
-                window.location.reload();
+                swal("Successful", result.data.message, "success");
+                // window.location.reload();
             }
             else{
                 request.id = this.state.id;
                 const result =  await urlservices.getService('/game','PUT', request);
-                alert(result.data.message);
-                console.log(result.data);
-                window.location.reload();
+                swal("Successful", result.data.message, "success");
+                // window.location.reload();
             }
         } catch (error) {
             alert(error.response);
@@ -61,8 +61,8 @@ class AddGame extends Component{
         const game = this.props.id;
         try{
             const result = await urlservices.getService(`/game/${game}`,'DELETE',game);
-            alert(result.data.message);
-            window.location.reload();
+            swal("Successful", result.data.message, "success");
+            // window.location.reload();
         }catch(error){
             console.log(error);
         }

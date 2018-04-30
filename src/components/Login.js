@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import urlservices from '../services/urlservices';
+import swal from 'sweetalert';
 
 class Login extends Component {
   constructor(props){
@@ -22,7 +23,8 @@ class Login extends Component {
       localStorage.setItem('token',token);
       window.location.href = '/games';
     } catch (error) {
-      alert('Invalid Credentials');
+      swal("Error", "Wrong Credentials", "error");
+      // alert('Invalid Credentials');
     }
   }
   getEmail(e){
@@ -39,7 +41,7 @@ class Login extends Component {
             <main className="loginContainer">
                 <div className="loginBox">
                     <div className="loginOptions">
-                        <a href="" className="signIn">Sign Up</a>
+                        <a href="" className="signIn">Login</a>
                         <a href="" className="signUp">Sign Up</a>
                     </div>
                     <div className="loginInfo">

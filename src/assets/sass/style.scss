@@ -289,62 +289,65 @@ main.productMain{
 }
 
 // EDIT/DELETE/ADD GAME POPUP
-.white-popup{
-	position: relative;
-	background: #F4F4F4;
-	width: auto;
-	max-width: 730px;
-	min-height: 500px;
-	margin: 20px auto;
-	display: flex;
-	justify-content: center;
-  	align-items: center;
-	section{
-		width: 100%;
-		display: flex;
-		flex-wrap: wrap;
-		padding: 0 20px;
-		margin: 0 auto;
-		.gameThumbnail,
-		.thumbnailUpload{
-			width: 40%;
-			margin-right: 5%;
-			img{
-				width: 100%;
-			}
-		}
-		.gameInfo,
-		.addInfo{
-			position: relative;
-			width: 55%;
-			ul{
-				color: black;
-				li{
-					margin-bottom: 5px;
-				}
-			}
-			.gameOptions{
-				position: absolute;
-				right: 0;
-				bottom: 10px;
-				a{
-					text-transform: uppercase;
-					color: white;
-					border-radius: 5px;
-					padding: 5px 15px;
-				}	
-				.edit,
-				.save{
-					background-color: #03BC67;
-				}
-				.delete,
-				.cancel{
-					background-color: #B21111;
-				}
-			}
-		}
-	}	
-}
+// .white-popup{
+// 	position: relative;
+// 	background: #F4F4F4;
+// 	width: auto;
+// 	max-width: 730px;
+// 	min-height: 500px;
+// 	margin: 20px auto;
+// 	display: flex;
+// 	justify-content: center;
+//   	align-items: center;
+// 	section{
+// 		width: 100%;
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		padding: 0 20px;
+// 		margin: 0 auto;
+// 		.gameThumbnail,
+// 		.thumbnailUpload{
+// 			width: 40%;
+// 			margin-right: 5%;
+// 			img{
+// 				width: 100%;
+// 			}
+// 		}
+// 		.gameInfo,
+// 		.addInfo{
+// 			position: relative;
+// 			width: 55%;
+// 			ul{
+// 				color: black;
+// 				li{
+// 					margin-bottom: 5px;
+// 				}
+// 			}
+// 			.gameOptions{
+// 				position: absolute;
+// 				right: 0;
+// 				bottom: 10px;
+// 				button{
+// 					text-transform: uppercase;
+// 					color: white;
+// 					border-radius: 5px;
+// 					padding: 5px 15px;
+					
+// 				}	
+// 				.edit,
+// 				.save{
+// 					background-color: #03BC67;
+// 					cursor: pointer;
+// 				}
+// 				.delete,
+// 				.cancel{
+// 					background-color: #B21111;
+// 					cursor: pointer;
+// 				}
+// 			}
+// 		}
+// 	}	
+// }
 
 form.editGame,
 form.addGame{
@@ -471,13 +474,22 @@ form.addGame{
 					border: none;
 					padding: 10px;
 				}
+				a,input[type=submit]{
+					cursor: pointer;
+				}
 				.edit,
 				.save{
 					background-color: #03BC67;
+					&:hover{
+						background-color: lighten(#03BC67,10%);
+					}	
 				}
 				.delete,
 				.cancel{
 					background-color: #B21111;
+					&:hover{
+						background-color: lighten(#B21111,10%);
+					}	
 				}
 			}
 		}
