@@ -9,6 +9,7 @@ export default class urlservices {
         const config = {};
 
         if(token){config.headers = {Authorization: token}}
+        console.log(token)
 
         switch(method){
             case 'POST':
@@ -18,7 +19,7 @@ export default class urlservices {
             case 'PUT':
                 return await axios.put(mainUrl,data,config)
             case 'DELETE' :
-                return await axios.put(mainUrl,data,config)
+                return await axios.delete(mainUrl,config)
             default:
                 break;
         }

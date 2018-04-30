@@ -19,7 +19,8 @@ class Login extends Component {
     try {
       const result = await urlservices.getService('/login','POST', body);
       const { token } = result.data.data;   
-    localStorage.setItem('token',token)
+      localStorage.setItem('token',token);
+      window.location.href = '/games';
     } catch (error) {
       alert('Invalid Credentials');
     }
@@ -30,7 +31,6 @@ class Login extends Component {
   }
   getPassowrd(e){
     let password = e.target.value;
-    console.log(password);
     this.setState({password:password});
   }
   render() {

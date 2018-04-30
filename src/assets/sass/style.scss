@@ -252,7 +252,11 @@ main.productMain{
 		flex-wrap:wrap;
 		li.game{
 			width: calc((100%/2) - 20px);
-    		margin: 0 auto 40px;
+			margin: 0 auto 40px;
+			cursor: pointer;
+			&:hover{
+				background: darken(#fff,10%);
+			}
     		img{
     			width: 100%;
     		}
@@ -344,8 +348,11 @@ main.productMain{
 
 form.editGame,
 form.addGame{
-	input{
+	input[type=text]{
 		width: 100%;
+		margin: 6px;
+		height: 32px;
+		padding-left: 10px;
 	}
 }
 /*****************r*************************
@@ -416,6 +423,63 @@ form.addGame{
 	}
 }
 
-
-
-
+// EDIT/DELETE/ADD GAME POPUP
+#edit-popup{
+	position: relative;
+	background: #F4F4F4;
+	width: auto;
+	max-width: 730px;
+	min-height: 500px;
+	margin: 20px auto;
+	display: flex;
+	justify-content: center;
+  	align-items: center;
+	section{
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0 20px;
+		margin: 0 auto;
+		.gameThumbnail,
+		.thumbnailUpload{
+			width: 40%;
+			margin-right: 5%;
+			img{
+				width: 100%;
+			}
+		}
+		.gameInfo,
+		.addInfo{
+			position: relative;
+			width: 55%;
+			ul{
+				color: black;
+				li{
+					margin-bottom: 5px;
+				}
+			}
+			.gameOptions{
+				position: absolute;
+				right: 0;
+				input[type=submit],a{
+					text-transform: uppercase;
+					color: white;
+					border-radius: 5px;
+					padding: 5px 15px;
+				}	
+				input[type=submit]{
+					border: none;
+					padding: 10px;
+				}
+				.edit,
+				.save{
+					background-color: #03BC67;
+				}
+				.delete,
+				.cancel{
+					background-color: #B21111;
+				}
+			}
+		}
+	}	
+}

@@ -206,7 +206,10 @@ main.productMain {
     flex-wrap: wrap; }
     main.productMain ul.productList li.game {
       width: calc((100%/2) - 20px);
-      margin: 0 auto 40px; }
+      margin: 0 auto 40px;
+      cursor: pointer; }
+      main.productMain ul.productList li.game:hover {
+        background: #e6e6e6; }
       main.productMain ul.productList li.game img {
         width: 100%; }
       main.productMain ul.productList li.game figcaption {
@@ -283,9 +286,12 @@ main.productMain {
         .white-popup section .addInfo .gameOptions .cancel {
           background-color: #B21111; }
 
-form.editGame input,
-form.addGame input {
-  width: 100%; }
+form.editGame input[type=text],
+form.addGame input[type=text] {
+  width: 100%;
+  margin: 6px;
+  height: 32px;
+  padding-left: 10px; }
 
 /*****************r*************************
 ****************  GAME LIST  ***************
@@ -332,3 +338,62 @@ form.addGame input {
   .addInfo ul li,
   .gameInfo ul li {
     font-size: 140%; } }
+
+#edit-popup {
+  position: relative;
+  background: #F4F4F4;
+  width: auto;
+  max-width: 730px;
+  min-height: 500px;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #edit-popup section {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20px;
+    margin: 0 auto; }
+    #edit-popup section .gameThumbnail,
+    #edit-popup section .thumbnailUpload {
+      width: 40%;
+      margin-right: 5%; }
+      #edit-popup section .gameThumbnail img,
+      #edit-popup section .thumbnailUpload img {
+        width: 100%; }
+    #edit-popup section .gameInfo,
+    #edit-popup section .addInfo {
+      position: relative;
+      width: 55%; }
+      #edit-popup section .gameInfo ul,
+      #edit-popup section .addInfo ul {
+        color: black; }
+        #edit-popup section .gameInfo ul li,
+        #edit-popup section .addInfo ul li {
+          margin-bottom: 5px; }
+      #edit-popup section .gameInfo .gameOptions,
+      #edit-popup section .addInfo .gameOptions {
+        position: absolute;
+        right: 0; }
+        #edit-popup section .gameInfo .gameOptions input[type=submit], #edit-popup section .gameInfo .gameOptions a,
+        #edit-popup section .addInfo .gameOptions input[type=submit],
+        #edit-popup section .addInfo .gameOptions a {
+          text-transform: uppercase;
+          color: white;
+          border-radius: 5px;
+          padding: 5px 15px; }
+        #edit-popup section .gameInfo .gameOptions input[type=submit],
+        #edit-popup section .addInfo .gameOptions input[type=submit] {
+          border: none;
+          padding: 10px; }
+        #edit-popup section .gameInfo .gameOptions .edit,
+        #edit-popup section .gameInfo .gameOptions .save,
+        #edit-popup section .addInfo .gameOptions .edit,
+        #edit-popup section .addInfo .gameOptions .save {
+          background-color: #03BC67; }
+        #edit-popup section .gameInfo .gameOptions .delete,
+        #edit-popup section .gameInfo .gameOptions .cancel,
+        #edit-popup section .addInfo .gameOptions .delete,
+        #edit-popup section .addInfo .gameOptions .cancel {
+          background-color: #B21111; }

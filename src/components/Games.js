@@ -1,13 +1,28 @@
 import React, {Component} from 'react';
 import urlservices from '../services/urlservices';
+import Modal from "react-responsive-modal";
+import AddGame from './AddGame.js';
+import addButton from '../assets/img/add-button.png';
+
 
 class Games extends Component{
     constructor(props){
         super(props);
         this.state ={
-            games: []
+            games: [],
+            open: false,
+            action: '',
+            id: '',
+            gameName:''
         }
     }
+    onOpenModal = (action,id,name) => {
+        this.setState({ open: true, action: action, id:id,gameName: name});
+    };
+
+    onCloseModal = () => {
+       this.setState({ open: false });
+    };
     async fetchGames(){
         try {
             // const token = localStorage.getItem('token');
@@ -25,20 +40,21 @@ class Games extends Component{
     }
     render(){
         const games = this.state.games;
+        const { open } = this.state;
         return(
             <div className="homepageWrapper">
                 <section className="searchContainer">
                     <form className="searchForm" >
-                            <input className="searchField" type="text" name="FirstName" placeholder="LOOK FOR YOUR FAVORITE GAMES"/>
+                        <input className="searchField" type="text" name="FirstName" placeholder="LOOK FOR YOUR FAVORITE GAMES"/>
                     </form>
                 </section>
                 <main className="productMain">
                     <ul className="productList">
                     {games.map(game =>
                         <li className="game" key={game.id}>
-                            <a href={`/game/${game.name}`} >
+                            <a onClick={(action,id,name) => this.onOpenModal('edit',game.id,game.name)} >
                                 <figure >
-                                    <img src={game.image} />
+                                    <img src={game.image} alt={game.name} />
                                     <figcaption>
                                         <ul>
                                             <li><strong>Title:</strong> {game.name}</li>
@@ -51,8 +67,12 @@ class Games extends Component{
                             </a>
                         </li>
                     )}
+                   
                     </ul>
-                    <div class="addGameContainer"><a class="addGame open-popup-link" href="#add-popup"><img src="build/img/add-button.png" alt="plus-sign"/></a></div>
+                    <div className="addGameContainer"><a className="addGame open-popup-link" onClick={(action) => this.onOpenModal('add')}><img src={addButton} alt="plus-sign"/></a></div>
+                    <Modal open={open} onClose={this.onCloseModal} center>
+                        <AddGame action ={this.state.action} id={this.state.id} name={this.state.gameName} />
+                    </Modal> 
                 </main>       
             </div>
         )
