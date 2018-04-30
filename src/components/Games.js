@@ -57,10 +57,10 @@ class Games extends Component{
                                     <img src={game.image} alt={game.name} />
                                     <figcaption>
                                         <ul>
-                                            <li><strong>Title:</strong> {game.name}</li>
-                                            <li><strong>Developer:</strong>{game.developer}</li>                                            
-                                            <li><strong>Publisher:</strong> {game.publisher}</li>
-                                            <li><strong>Price:</strong>${game.price}</li>
+                                            <li><strong>Title: </strong> {game.name}</li>
+                                            <li><strong>Developer: </strong>{game.developer}</li>                                            
+                                            <li><strong>Publisher: </strong> {game.publisher}</li>
+                                            <li><strong>Price: </strong>${game.price}</li>
                                         </ul>
                                     </figcaption>
                                 </figure>

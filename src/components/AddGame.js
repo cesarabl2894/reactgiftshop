@@ -79,6 +79,7 @@ class AddGame extends Component{
                             <input className="image" type="text" name="image" required value={this.state.image} placeholder="upload game image" onChange={(e)=>this.setState({image:e.target.value})}/>
                             <input className="price" type="text" name="price" required value={this.state.price} placeholder="enter game price" onChange={(e)=>this.setState({price:e.target.value})}/>
                             <input className="publisher" type="text" name="publisher" value={this.state.publisher} required placeholder="enter game publisher" onChange={(e)=>this.setState({publisher:e.target.value})}/>
+                            <input className="developer" type="text" name="developer" value={this.state.developer} required placeholder="enter game developer" onChange={(e)=>this.setState({developer:e.target.value})}/>
                             <div className="gameOptions">
                                 <input type="submit" className="save" value="Submit" />
                                 <a className="cancel" onClick={() =>this.deleteGame()}>Delete</a>
