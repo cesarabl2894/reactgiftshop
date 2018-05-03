@@ -14,19 +14,16 @@ class AddGame extends Component{
             price: '',
             image: '',
             description: ''
-        }
-        
+        };        
     }
     componentDidMount(){
-        this.loadinfo();
-        
+        this.loadinfo();        
     }
     async loadinfo(){
         
         if(this.props.action === 'edit')
         try {
             const gameName = this.props.name;
-            console.log(gameName);
             const response = await urlservices.getService(`/game/${gameName}`, 'GET');
             const { id, name, developer, publisher, price, image, description } = response.data.data;
 
@@ -45,16 +42,19 @@ class AddGame extends Component{
             if(action === 'add'){
                 const result =  await urlservices.getService('/game','POST', request);
                 swal("Successful", result.data.message, "success");
-                // window.location.reload();
+                this.props.onCloseModal();
+                this.props.fetchGames();
             }
             else{
                 request.id = this.state.id;
                 const result =  await urlservices.getService('/game','PUT', request);
                 swal("Successful", result.data.message, "success");
-                // window.location.reload();
+                this.props.onCloseModal();
+                this.props.fetchGames();
             }
+            
         } catch (error) {
-            alert(error.response);
+            console.log(error.message);
         }
     }
     async deleteGame(){
@@ -62,9 +62,12 @@ class AddGame extends Component{
         try{
             const result = await urlservices.getService(`/game/${game}`,'DELETE',game);
             swal("Successful", result.data.message, "success");
+            this.props.onCloseModal();
+            this.props.fetchGames();
             // window.location.reload();
         }catch(error){
-            console.log(error);
+            swal("Error","Something Went Wrong With your request", "error");
+            console.log(error.message);
         }
     }
     render(){

@@ -9,7 +9,6 @@ export default class urlservices {
         const config = {};
 
         if(token){config.headers = {Authorization: token}}
-        console.log(token)
 
         switch(method){
             case 'POST':

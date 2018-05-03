@@ -15,6 +15,7 @@ class Games extends Component{
             id: '',
             gameName:''
         }
+        // this.fetchGames = this.fetchGames.bind(this);
     }
     onOpenModal = (action,id,name) => {
         this.setState({ open: true, action: action, id:id,gameName: name});
@@ -71,7 +72,7 @@ class Games extends Component{
                     </ul>
                     <div className="addGameContainer"><a className="addGame open-popup-link" onClick={(action) => this.onOpenModal('add')}><img src={addButton} alt="plus-sign"/></a></div>
                     <Modal open={open} onClose={this.onCloseModal} center>
-                        <AddGame action ={this.state.action} id={this.state.id} name={this.state.gameName} />
+                        <AddGame action ={this.state.action} id={this.state.id} name={this.state.gameName} fetchGames={() => this.fetchGames()} onCloseModal={()=> this.onCloseModal()}/>
                     </Modal> 
                 </main>       
             </div>
