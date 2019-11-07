@@ -23,9 +23,10 @@ class AddGame extends Component{
         
         if(this.props.action === 'edit')
         try {
-            const gameName = this.props.name;
-            const response = await urlservices.getService(`/game/${gameName}`, 'GET');
-            const { id, name, developer, publisher, price, image, description } = response.data.data;
+            const id = this.props.id;
+            const response = await urlservices.getService(`/games/${id}/`, 'GET');
+            console.log(response);
+            const { name, developer, publisher, price, image, description } = response.data[0];
 
             this.setState({ id, name, developer, publisher, price, image, description });
         } catch (err ) {
@@ -40,28 +41,28 @@ class AddGame extends Component{
         const request = { name, developer, publisher, price, image, description };        
         try {
             if(action === 'add'){
-                const result =  await urlservices.getService('/game','POST', request);
-                swal("Successful", result.data.message, "success");
+                const result =  await urlservices.getService('/games/','POST', request);
+                swal("Successful", result.data.responseMessage, "success");
                 this.props.onCloseModal();
                 this.props.fetchGames();
             }
             else{
                 request.id = this.state.id;
-                const result =  await urlservices.getService('/game','PUT', request);
-                swal("Successful", result.data.message, "success");
+                const result =  await urlservices.getService('/games/','PUT', request);
+                swal("Successful", result.data.responseMessage, "success");
                 this.props.onCloseModal();
                 this.props.fetchGames();
             }
             
         } catch (error) {
-            console.log(error.message);
+            console.log(error);
         }
     }
     async deleteGame(){
-        const game = this.props.id;
+        const id = this.props.id;
         try{
-            const result = await urlservices.getService(`/game/${game}`,'DELETE',game);
-            swal("Successful", result.data.message, "success");
+            const result = await urlservices.getService(`/games/${id}`,'DELETE');
+            swal("Successful", result.data.responseMessage, "success");
             this.props.onCloseModal();
             this.props.fetchGames();
             // window.location.reload();

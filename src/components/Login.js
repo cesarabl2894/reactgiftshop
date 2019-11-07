@@ -18,8 +18,9 @@ class Login extends Component {
     // console.log(result)
 
     try {
-      const result = await urlservices.getService('/login','POST', body);
-      const { token } = result.data.data;   
+      const result = await urlservices.getService('/login/','POST', body);
+      console.log(result);
+      const token  = result.data.data;   
       localStorage.setItem('token',token);
       window.location.href = '/games';
     } catch (error) {
@@ -49,7 +50,7 @@ class Login extends Component {
                         <p className="slogan">(Gaming...for everyone)</p>
                         <form className="loginForm" onSubmit={(e)=>this.loginAction(e)}>
                             <input className="user" type="email" placeholder="enter email or username" onChange={e => this.getEmail(e)}/>
-                            <input className="password" type="text" placeholder="enter your password" onChange={e => this.getPassowrd(e)}/>
+                            <input className="password" type="password" placeholder="enter your password" onChange={e => this.getPassowrd(e)}/>
                             <input className="submit" type="submit" value="Log In"/>
 					              </form>
                     </div>

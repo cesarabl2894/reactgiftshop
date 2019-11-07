@@ -27,8 +27,8 @@ class Games extends Component{
     async fetchGames(){
         try {
             // const token = localStorage.getItem('token');
-            const ajxresponse = await urlservices.getService('/games?name=','GET');
-            const games = ajxresponse.data.data;
+            const ajaxresponse = await urlservices.getService('/games/','GET');
+            const games = ajaxresponse.data;
             this.setState({games})
             
         } catch (error) {
@@ -53,7 +53,7 @@ class Games extends Component{
                     <ul className="productList">
                     {games.map(game =>
                         <li className="game" key={game.id}>
-                            <a onClick={(action,id,name) => this.onOpenModal('edit',game.id,game.name)} >
+                            <a onClick={() => this.onOpenModal('edit',game.id,game.name)} >
                                 <figure >
                                     <img src={game.image} alt={game.name} />
                                     <figcaption>
